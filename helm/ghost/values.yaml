@@ -1,0 +1,35 @@
+# Default values for Ghost deployment
+
+ghost:
+  image: "ghost:5-alpine"
+  replicaCount: 1
+  service:
+    type: LoadBalancer # Change to LoadBalancer to expose externally
+    port: 2368
+    targetPort: 2368
+    externalPort: 32322
+  url: "http://localhost:32322"
+  env:
+    databaseClient: "mysql"
+    databaseHost: "db"
+    databaseUser: "root"
+    databasePassword: "example"
+    databaseName: "ghost"
+    NODE_ENV: "production"
+  persistence:
+    enabled: true
+    size: 3Gi # used to be 5
+    storageClass: "" # Set to "-" to use default storage class
+
+mysql:
+  image: "mysql:8.0"
+  replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 3306
+  env:
+    MYSQL_ROOT_PASSWORD: "example"
+  persistence:
+    enabled: true
+    size: 2Gi # used to be 5
+    storageClass: "" # Set to "-" to use default storage class

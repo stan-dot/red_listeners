@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ghost
+spec:
+  type: {{ .Values.ghost.service.type }}
+  ports:
+    - port: {{ .Values.ghost.service.port }}
+      targetPort: {{ .Values.ghost.service.targetPort }}
+      nodePort: {{ .Values.ghost.service.externalPort | default 8080 }}
+  selector:
+    app: ghost

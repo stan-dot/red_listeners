@@ -1,0 +1,5 @@
+apiVersion: v2
+name: my-ghost-chart
+description: A Helm chart for deploying Ghost with MySQL
+version: 0.1.0
+appVersion: "5.0"
