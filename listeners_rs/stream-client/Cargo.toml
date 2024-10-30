@@ -1,0 +1,10 @@
+[package]
+name = "stream-client"
+version = "0.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cargo-typify = "0.2.0"
+typify = "0.2.0"

@@ -1,0 +1,3 @@
+[workspace]
+members = ["my-lib", "my-app", "my-app-2", "stream-client"]
+resolver = "2"
