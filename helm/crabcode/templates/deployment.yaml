@@ -1,0 +1,29 @@
+# templates/deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "rust-backend.fullname" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "rust-backend.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "rust-backend.name" . }}
+    spec:
+      containers:
+      - name: rust-backend
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+          - containerPort: 8000
+        volumeMounts:
+          - name: code-storage
+            mountPath: {{ .Values.persistence.mountPath }}
+      volumes:
+        - name: code-storage
+          persistentVolumeClaim:
+            claimName: {{ include "rust-backend.fullname" . }}-pvc

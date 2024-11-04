@@ -1,0 +1,24 @@
+# values.yaml
+
+# Application image configuration
+image:
+  repository: your-dockerhub-username/your-rust-backend-image
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# Kubernetes service configuration
+service:
+  type: ClusterIP
+  port: 8000
+
+# Persistent Volume configurations
+persistence:
+  enabled: true
+  storageClass: ""
+  accessModes:
+    - ReadWriteMany
+  size: 1Gi
+  mountPath: /path/to/code  # Match CODE_DIR in Rust app
+
+# Deployment configuration
+replicaCount: 1
