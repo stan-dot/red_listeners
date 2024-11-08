@@ -10,7 +10,8 @@
         "ms-kubernetes-tools.vscode-kubernetes-tools",
         "rust-lang.rust-analyzer",
         "tamasfe.even-better-toml",
-        "tsandall.opa"
+        "tsandall.opa",
+        "fill-labs.dependi"
       ]
     }
   },
