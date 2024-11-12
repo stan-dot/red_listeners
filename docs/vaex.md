@@ -6,7 +6,7 @@ graph TD
 
     B -- Yes --> C[Check Document Type]
     C -- Start --> D[Initialize Buffer for Experiment]
-    C -- Not Start --> E{Is this the "End Document"?}
+    C -- Not Start --> E{Is this the End Document?}
     E -- Yes --> F[Store Data in Postgres]
     E -- No --> G[Stream Data via WebSocket]
 
